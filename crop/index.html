@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="cropperjs-main/dist/cropper.min.css" />
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="cropperjs-main/dist/cropper.min.js"></script>
+    <style>
+        img {
+            display: block;
+
+            /* This rule is very important, please don't ignore this */
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: space-between;">
+        <div style="width: 500px;">
+            <img id="image" src="img.jpg">
+            <div class="btn-group">
+                <button id="set-mode-move" type="button" class="btn btn-primary" title="Move">
+                    Set Mode Move
+                </button>
+                <button id="set-mode-crop" type="button" class="btn btn-primary" title="Crop">
+                    Set Mode Crop
+                </button>
+            </div>
+        
+            <button id="crop-img">Crop</button>
+            <button id="rotate-0deg-img">Rotate 0deg Wise</button>
+            <button id="rotate-90deg-img">Rotate 90deg Wise</button>
+            <button id="rotate-180deg-img">Rotate 180deg Wise</button>
+            <button id="rotate-270deg-img">Rotate 270deg Wise</button>
+            <button id="rotate-clockwise-img">Rotate Clock Wise</button>
+            <button id="rotate-anticlockwise-img">Rotate Anti-Clock Wise</button>
+            <button id="zoom-in-img">Zoom +</button>
+            <button id="zoom-out-img">Zoom -</button>
+        </div>
+        <div id="img-preview">
+
+        </div>
+    </div>
+
+    <script>
+        var cropper = new Cropper(document.getElementById("image"), {
+
+        });
+
+        $("#set-mode-move").click(() => {
+            cropper.setDragMode("move");
+        });
+
+        $("#set-mode-crop").click(() => {
+            cropper.setDragMode("crop");
+        });
+
+        $("#rotate-0deg-img").click(() => {
+            cropper.rotateTo(0);
+        });
+
+        $("#rotate-90deg-img").click(() => {
+            cropper.rotateTo(90);
+        });
+
+        $("#rotate-180deg-img").click(() => {
+            cropper.rotateTo(180);
+        });
+
+        $("#rotate-270deg-img").click(() => {
+            cropper.rotateTo(270);
+        });
+
+        $("#rotate-clockwise-img").click(() => {
+            cropper.rotate(1);
+        });
+        $("#rotate-anticlockwise-img").click(() => {
+            cropper.rotate(-1);
+        });
+
+        $("#zoom-in-img").click(() => {
+            zoom += 0.05;
+            cropper.zoomTo(zoom);
+        });
+
+        $("#zoom-out-img").click(() => {
+            zoom -= 0.05;
+            cropper.zoomTo(zoom);
+        });
+
+        $("#crop-img").click(() => {
+            var canvas = cropper.getCroppedCanvas({ maxWidth: 1024 });
+            $("#img-preview").html(canvas);
+        });
+    </script>
+</body>
+
+</html>
