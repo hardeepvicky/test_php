@@ -1,0 +1,13 @@
+process,status
+"Getting Data From CSV",Done
+"Total Count",884950
+"Saving CSV data to Temp. Table","100 %"
+"Sum Of Due Amount","12654422921, (Match)"
+"Sum Of paid Amount","11461021901, (Match)"
+"Sum Of Concesssion Amount","90544480, (Match)"
+"Sum Of Scholarship Amount","471818093, (Match)"
+"Sum Of Refund Amount","-173381473, (Match)"
+"Saveing Branches","24 Rows Saved"
+"Saveing Fee Category","49 Rows Saved"
+"Saveing Fee Collection Type","144 Rows Saved"
+"Processing Temp Data","90.40 %"
